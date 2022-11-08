@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "Yup";
 import CountrySelector from "./CountrySelector";
 import { motion } from "framer-motion";
+import LocationSelector from "./LocationSelector";
 
 const buttonVariants = {
 	hover: {
@@ -26,6 +27,7 @@ const ContactForm = () => {
 			subject: "",
 			country: "91",
 			message: "",
+			location: "",
 		},
 		validationSchema: Yup.object({
 			name: Yup.string()
@@ -52,6 +54,9 @@ const ContactForm = () => {
 				.required("Message Required.")
 				.min(15, "Minimum 15 letter")
 				.max(100, "Maximum 100 letter"),
+			location: Yup.string().required("Location Required."),
+			// .min(15, "Minimum 15 letter")
+			// .max(100, "Maximum 100 letter"),
 		}),
 		onSubmit: (values) => {
 			console.log(values);
@@ -72,7 +77,7 @@ const ContactForm = () => {
 							className={`block w-full rounded-md border bg-gray-100 px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 lg:w-full ${
 								formik.touched.name && Boolean(formik.errors.name)
 									? "dark:border-red-600"
-									: "dark:border-gray-400"
+									: "border-gray-300"
 							} `}
 							type="text"
 							name="name"
@@ -95,7 +100,7 @@ const ContactForm = () => {
 							className={`block w-full rounded-md border bg-gray-100 px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40  ${
 								formik.touched.email && Boolean(formik.errors.email)
 									? "dark:border-red-600"
-									: "dark:border-gray-400"
+									: "border-gray-300"
 							}`}
 							type="email"
 							name="email"
@@ -116,7 +121,7 @@ const ContactForm = () => {
 					<div className="flex w-full flex-col gap-3 md:flex-row">
 						<div className=" w-full md:w-1/4 lg:w-32">
 							<CountrySelector
-								className="bg-gray-100"
+								className="bg-gray-100 border-gray-300"
 								defaultValue="91"
 								name="country"
 								onChange={formik.handleChange}
@@ -129,7 +134,7 @@ const ContactForm = () => {
 							className={`block w-full rounded-md border bg-gray-100 px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 md:w-3/4 lg:w-full  ${
 								formik.touched.phone && Boolean(formik.errors.phone)
 									? "dark:border-red-600"
-									: "dark:border-gray-400"
+									: "border-gray-300"
 							}`}
 							type="number"
 							name="phone"
@@ -153,7 +158,7 @@ const ContactForm = () => {
 						className={`block w-full rounded-md border bg-gray-100 px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 ${
 							formik.touched.subject && Boolean(formik.errors.subject)
 								? "dark:border-red-600"
-								: "dark:border-gray-400"
+								: "border-gray-300"
 						}`}
 						type="text"
 						name="subject"
@@ -169,6 +174,37 @@ const ContactForm = () => {
 
 				<div className="mt-4 w-full">
 					<label className="mb-2 block text-sm font-semibold text-gray-700 ">
+						Choose tSmart Store Location
+					</label>
+					<LocationSelector
+						className="bg-gray-100 border-gray-300"
+						defaultValue="91"
+						name="location"
+						onChange={formik.handleChange}
+						onBlur={formik.handleBlur}
+						value={formik.values.country}
+					/>
+
+					{/* <input
+							className={`block w-full rounded-md border bg-gray-100 px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 ${
+								formik.touched.location && Boolean(formik.errors.location)
+									? "dark:border-red-600"
+									: "border-gray-300"
+							}`}
+							type="text"
+							name="location"
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+							value={formik.values.location}
+							placeholder="Choose Location"
+						/> */}
+					<span className="text-xs font-light text-red-600">
+						{formik.touched.location && formik.errors.location}
+					</span>
+				</div>
+
+				<div className="mt-4 w-full">
+					<label className="mb-2 block text-sm font-semibold text-gray-700 ">
 						Message
 					</label>
 
@@ -176,7 +212,7 @@ const ContactForm = () => {
 						className={`block h-32 w-full rounded-md border bg-gray-100 px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 ${
 							formik.touched.message && Boolean(formik.errors.message)
 								? "dark:border-red-600"
-								: "dark:border-gray-400"
+								: "border-gray-300"
 						}`}
 						name="message"
 						onChange={formik.handleChange}

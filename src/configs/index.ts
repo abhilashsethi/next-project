@@ -429,3 +429,13 @@ export const countries = [
 	{ code: "ZM", label: "Zambia", phone: "260" },
 	{ code: "ZW", label: "Zimbabwe", phone: "263" },
 ];
+
+export const locations = [
+	{ location: "Earls Court Road" },
+	{ location: "Bakers Street" },
+	{ location: "Strand" },
+	{ location: "Piccadilly Circus" },
+	{ location: "Queen Victoria" },
+	{ location: "Queen Victoria" },
+	{ location: "Victoria Street" },
+];

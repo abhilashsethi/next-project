@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap");
+
+.heading {
+	font-family: "Space Grotesk", sans-serif;
+}
+
+.bgImg {
+	background-image: url("/loginBg.png");
+	background-position: top;
+	background-size: 50vw auto;
+}
+
+.link1 {
+	/* display: inline-block; */
+	/* padding: 5px; */
+	position: relative;
+	/* color: #84c2ff; */
+	/* text-decoration: none; */
+}
+
+.link1.underline-left-right::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2.5px; /* 100% will cover entire background of text */
+	border-radius: 10px;
+	background-color: #ff148b;
+	bottom: 0;
+	left: 0;
+}
+
+.link1.underline-left-right {
+	position: relative;
+}
+.link1.underline-left-right::before {
+	transform-origin: right;
+	transform: scaleX(0);
+	transition: transform 0.4s ease-in-out;
+}
+.link1.underline-left-right:hover::before {
+	transform-origin: left;
+	transform: scaleX(1);
+}
