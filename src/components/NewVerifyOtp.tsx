@@ -52,7 +52,7 @@ const NewVerifyOtp = () => {
 				<div className="w-full md:w-1/2 p-5 order-1 md:order-2">
 					<div className="text-left inline-block">
 						<img
-							src="https://tsmart-uk.vercel.app/logo.png"
+							src="https://www.tsmartuk.co.uk/img/tsmart.webp"
 							alt="logo"
 							className="w-36"
 						/>

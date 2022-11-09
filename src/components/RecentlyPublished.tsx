@@ -1,4 +1,5 @@
 import React from "react";
+import PublishCard from "./PublishCard";
 
 const RecentlyPublished = () => {
 	return (
@@ -6,19 +7,7 @@ const RecentlyPublished = () => {
 			<div className="border-b-2 border-[#efefef] p-7">
 				<h2 className="text-base font-bold">Recently Published</h2>
 			</div>
-			<div className="flex justify-center border-b-2 border-[#efefef] p-3">
-				<img
-					src="https://cdn.shopify.com/s/files/1/1180/1832/articles/heatwave_blog_cover_300x300.jpg?v=1658847653"
-					alt=""
-					className="w-24 h-16"
-				/>
-				<div className="px-3 text-sm font-medium w-full">
-					<h2 className="mb-3">
-						PREVENT YOUR PHONE FROM BEING DAMAGED DURING THIS HEATWAVE
-					</h2>
-					<p>Jul 19, 2022 / 0 comment</p>
-				</div>
-			</div>
+			<PublishCard />
 			<div className="flex justify-center border-b-2 border-[#efefef] p-3">
 				<img
 					src="https://cdn.shopify.com/s/files/1/1180/1832/articles/samsung-galaxy-wont-turn-on_99f854d0-3332-4f0f-b50a-dac5fbcd1ee3_300x300.jpg?v=1657725018"

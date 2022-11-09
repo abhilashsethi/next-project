@@ -184,20 +184,6 @@ const ContactForm = () => {
 						onBlur={formik.handleBlur}
 						value={formik.values.country}
 					/>
-
-					{/* <input
-							className={`block w-full rounded-md border bg-gray-100 px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 ${
-								formik.touched.location && Boolean(formik.errors.location)
-									? "dark:border-red-600"
-									: "border-gray-300"
-							}`}
-							type="text"
-							name="location"
-							onChange={formik.handleChange}
-							onBlur={formik.handleBlur}
-							value={formik.values.location}
-							placeholder="Choose Location"
-						/> */}
 					<span className="text-xs font-light text-red-600">
 						{formik.touched.location && formik.errors.location}
 					</span>

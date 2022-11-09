@@ -41,7 +41,7 @@ const Contact = () => {
 			</div>
 
 			{/* Our Locations */}
-			<OurLocation />
+			{/* <OurLocation /> */}
 
 			{/* card section */}
 			<Cards />
