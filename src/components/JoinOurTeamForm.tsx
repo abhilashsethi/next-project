@@ -24,7 +24,6 @@ const ContactForm = () => {
 			phone: "",
 			address: "",
 			country: "91",
-			message: "",
 			city: "",
 			postcode: "",
 			resume: "",
@@ -74,7 +73,7 @@ const ContactForm = () => {
 
 	return (
 		<div className="p-3">
-			<form onSubmit={formik.handleSubmit}>
+			<form className="" onSubmit={formik.handleSubmit}>
 				<div className=" flex w-full flex-col gap-3 md:flex-row">
 					<div className=" w-full ">
 						<label className="mb-2 block text-sm font-semibold text-gray-700 ">
@@ -105,7 +104,7 @@ const ContactForm = () => {
 						</label>
 
 						<input
-							className={`block w-full rounded-md border bg-gray-100 px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40  ${
+							className={`block w-full rounded-md border bg-gray-100 px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 ${
 								formik.touched.email && Boolean(formik.errors.email)
 									? "dark:border-red-600"
 									: "border-gray-300"
@@ -128,19 +127,8 @@ const ContactForm = () => {
 							Phone Number
 						</label>
 						<div className="flex w-full flex-col gap-3 md:flex-row">
-							{/* <div className=" w-full md:w-1/4 lg:w-32">
-							<CountrySelector
-								className="bg-gray-100 border-gray-300"
-								defaultValue="91"
-								name="country"
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-								value={formik.values.country}
-							/>
-						</div> */}
-
 							<input
-								className={`block w-full rounded-md border bg-gray-100 px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 md:w-3/4 lg:w-full  ${
+								className={`block w-full rounded-md border bg-gray-100 px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 md:w-3/4 lg:w-full ${
 									formik.touched.phone && Boolean(formik.errors.phone)
 										? "dark:border-red-600"
 										: "border-gray-300"
@@ -231,6 +219,9 @@ const ContactForm = () => {
 				</div>
 
 				<div className="mt-4 w-64">
+					<label className="mb-1 block text-sm font-semibold text-gray-700 ">
+						Resume
+					</label>
 					<input
 						className={`block w-full rounded-md border bg-gray-100 px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 lg:w-full ${
 							formik.touched.resume && Boolean(formik.errors.resume)
@@ -248,16 +239,91 @@ const ContactForm = () => {
 						{formik.touched.resume && formik.errors.resume}
 					</span>
 				</div>
+				<div className="mt-4">
+					<label className="mb-2 block text-sm font-semibold text-gray-700">
+						Do you currently have the right to work in the UK?
+					</label>
+					<label className="flex items-center gap-2">
+						<input
+							className={`block bg-gray-100 text-gray-700 focus:border-blue-400 ${
+								formik.touched.radio1 && Boolean(formik.errors.radio1)
+									? "dark:border-red-600"
+									: "border-gray-300"
+							} `}
+							type="radio"
+							name="radio1"
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+							value={formik.values.radio1}
+						/>
+						Yes
+					</label>
+					<label className="flex items-center gap-2">
+						<input
+							className={`block bg-gray-100 text-gray-700 focus:border-blue-400 ${
+								formik.touched.radio1 && Boolean(formik.errors.radio1)
+									? "dark:border-red-600"
+									: "border-gray-300"
+							} `}
+							type="radio"
+							name="radio1"
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+							value={formik.values.radio1}
+						/>
+						No
+					</label>
+				</div>
 
-				<div className="mt-6">
+				<div className="mt-4">
+					<label className="mb-2 block text-sm font-semibold text-gray-700 ">
+						Can you commute into Central London?
+					</label>
+					<label className="flex items-center gap-2">
+						<input
+							className={`block bg-gray-100 text-gray-700 focus:border-blue-400 ${
+								formik.touched.name && Boolean(formik.errors.name)
+									? "dark:border-red-600"
+									: "border-gray-300"
+							} `}
+							type="radio"
+							name="radio2"
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+							value={formik.values.name}
+							placeholder="Jane Doe"
+						/>
+						Yes
+					</label>
+					<label className="flex items-center gap-2">
+						<input
+							className={`block bg-gray-100 text-gray-700 focus:border-blue-400 ${
+								formik.touched.name && Boolean(formik.errors.name)
+									? "dark:border-red-600"
+									: "border-gray-300"
+							} `}
+							type="radio"
+							name="radio2"
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+							value={formik.values.name}
+							placeholder="Jane Doe"
+						/>
+						No
+					</label>
+				</div>
+				<hr className="mt-8 mb-4" />
+				<div className="w-full h-[0.1rem] bg-[#ff3d9b]"></div>
+
+				<div className="mt-6 w-full flex justify-center items-center">
 					<motion.button
 						variants={buttonVariants}
 						whileHover="hover"
-						className="	rounded-lg px-5 py-3 font-medium text-white bg-[#d9117b]"
+						className=" rounded-lg px-5 py-3 w-1/5 font-medium text-white bg-[#d9117b]"
 						type="submit"
 						disabled={formik.isSubmitting}
 					>
-						<p>Send Message</p>
+						Send Message
 					</motion.button>
 				</div>
 			</form>

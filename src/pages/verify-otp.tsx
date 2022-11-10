@@ -27,8 +27,8 @@ const verifyOtp = () => {
 			{/* <Faq /> */}
 			{/* <Warranty /> */}
 			{/* <JoinOurTeam /> */}
-			{/* <TermsAndCondition /> */}
-			<PrivacyPolicy />
+			<TermsAndCondition />
+			{/* <PrivacyPolicy /> */}
 		</div>
 	);
 };
